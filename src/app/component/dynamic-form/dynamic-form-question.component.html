@@ -1,0 +1,19 @@
+<nz-form-item [formGroup]="form">
+  <nz-form-label [nzSm]="6" [nzXs]="24" [nzFor]="question.key" [nzRequired]="question.validator.required">{{question.label}}</nz-form-label>
+  <nz-form-control [ngSwitch]="question.controlType" [nzSm]="14" [nzXs]="24" [nzErrorTip]="question.errTip">
+    <ng-container *ngSwitchCase="'textbox'">
+      <input nz-input [id]="question.key" [formControlName]="question.key" [type]="question.type" />
+    </ng-container>
+    <ng-container *ngSwitchCase="'datepicker'">
+      <nz-date-picker [id]="question.key" [formControlName]="question.key" ></nz-date-picker>
+    </ng-container>
+    <ng-container *ngSwitchCase="'radiogroup'">
+      <nz-radio-group [id]="question.key" [formControlName]="question.key" [nzButtonStyle]="'solid'">
+        <label *ngFor="let opt of question.options" nz-radio-button [nzValue]="opt.key">{{opt.value}}</label>
+      </nz-radio-group>
+    </ng-container>
+    <ng-container *ngSwitchCase="'cascader'">
+      <nz-cascader [id]="question.key" [formControlName]="question.key" [nzOptions]="question.options"> </nz-cascader>
+    </ng-container>
+  </nz-form-control>
+</nz-form-item>

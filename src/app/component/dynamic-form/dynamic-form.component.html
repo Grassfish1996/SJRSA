@@ -1,0 +1,13 @@
+<div>
+  <form nz-form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <ng-container *ngFor="let question of questions" class="form-row">
+      <app-question [question]="question" [form]="form"></app-question>
+    </ng-container>
+
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button [disabled]="!form.valid" nz-button nzType="primary">保存</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

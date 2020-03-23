@@ -1,0 +1,32 @@
+<nz-page-header nzTitle="学生信息列表"> </nz-page-header>
+
+<nz-table
+  #rowSelectionTable
+  nzShowSizeChanger
+  [nzData]="listOfAllData"
+  (nzCurrentPageDataChange)="currentPageDataChange($event)"
+>
+  <thead>
+  <tr>
+    <th
+      nzShowCheckbox
+      [(nzChecked)]="isAllDisplayDataChecked"
+      [nzIndeterminate]="isIndeterminate"
+      (nzCheckedChange)="checkAll($event)"
+    ></th>
+    <th *ngFor="let th of thlist">{{th.label}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of rowSelectionTable.data">
+    <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.stuid]" (nzCheckedChange)="refreshStatus()"></td>
+    <td *ngFor="let th of thlist">{{data[th.key]}}</td>
+  </tr>
+  </tbody>
+</nz-table>
+
+<div class="btnrow">
+  <button routerLink="/stu-man" nz-button nzType="default">添加</button>
+  <button nz-button nzType="default">修改</button>
+  <button nz-button nzType="default">删除</button>
+</div>
