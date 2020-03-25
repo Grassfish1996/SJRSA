@@ -19,12 +19,14 @@ import {QuestionService} from './component/dynamic-form/question.service';
 import {DynamicFormService} from './api/DynamicFormService';
 import {AppShareModule} from './component/app-share.module';
 import { StuListComponent } from './pages/stu-list/stu-list.component';
+import {StudentApi} from './api/student.api';
 
 registerLocaleData(zh);
 
 const myServices = [
   QuestionService,
   DynamicFormService,
+  StudentApi,
 ]
 
 @NgModule({

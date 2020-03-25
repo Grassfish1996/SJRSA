@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {StudentApi} from '../../api/student.api';
 
 interface ItemData {
   stuid: number;
@@ -59,6 +60,11 @@ export class StuListComponent implements OnInit {
     },
   ];
 
+
+  constructor(
+    private studentApi: StudentApi,
+  ) {
+  }
   currentPageDataChange($event: ItemData[]): void {
     this.listOfDisplayData = $event;
     this.refreshStatus();
@@ -78,7 +84,7 @@ export class StuListComponent implements OnInit {
   ngOnInit(): void {
     for (let i = 0; i < 100; i++) {
       this.listOfAllData.push({
-        stuid: 201313130000+i,
+        stuid: 201313130000 + i,
         name: '张三',
         sex: '0',
         birthday: '2020-03-14T12:12:43.117Z',
@@ -88,6 +94,10 @@ export class StuListComponent implements OnInit {
         class: 'rj1401'
       });
     }
+
+    this.studentApi.getStudentList().subscribe(res=>{
+      console.log(res);
+    });
   }
 
 }
