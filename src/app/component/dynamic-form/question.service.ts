@@ -8,6 +8,7 @@ import {map} from 'rxjs/operators';
 import {DatepickerQuestion} from './question-datepicker';
 import {RadiogroupQuestion} from './question-radiogroup';
 import {CascaderQuestion} from './question-cascader';
+import {FormGroup} from '@angular/forms';
 
 @Injectable()
 export class QuestionService {
@@ -62,5 +63,30 @@ export class QuestionService {
     }
 
     return question;
+  }
+
+  initQuestionsAns(questions,data){
+    if (data == undefined){
+      return questions;
+    }
+    for (let question of questions){
+      let key = question.key;
+      if (data[key]!=undefined){
+        question.value = data[key];
+      }
+    }
+    console.log(questions);
+    return questions;
+  }
+
+  initFormValues(form:FormGroup,data){
+    if (data == undefined){
+      return;
+    }
+    for (let key in form.controls){
+      if (data[key]!=undefined){
+        form.controls[key].setValue(data[key]);
+      }
+    }
   }
 }

@@ -1,0 +1,45 @@
+<nz-page-header nzTitle="学科信息列表"> </nz-page-header>
+
+<nz-table
+  #rowSelectionTable
+  nzShowSizeChanger
+  [nzData]="listOfAllData"
+  (nzCurrentPageDataChange)="currentPageDataChange($event)"
+>
+  <thead>
+  <tr>
+    <th
+      nzShowCheckbox
+      [(nzChecked)]="isAllDisplayDataChecked"
+      [nzIndeterminate]="isIndeterminate"
+      (nzCheckedChange)="checkAll($event)"
+    ></th>
+    <th *ngFor="let th of thlist">{{th.label}}</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of rowSelectionTable.data">
+    <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" (nzCheckedChange)="refreshStatus()"></td>
+    <td *ngFor="let th of thlist">{{data[th.key]}}</td>
+    <td operationTd>
+      <a (click)="updateOne(data.id)">编辑</a>
+      <a  nz-popconfirm
+          nzPopconfirmTitle="确定删除该学科？"
+          nzPopconfirmPlacement="bottom"
+          (nzOnConfirm)="deleteOne(data.id)"
+          class="delete">删除</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+
+<div class="btnrow">
+  <button (click)="add()" nz-button nzType="default">添加</button>
+  <button (click)="delete()" nz-button nzType="default">批量删除</button>
+</div>
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="{{modelTitle}}" (nzOnCancel)="handleCancel()" (nzOnOk)="modelOkFun()">
+  <app-dynamic-form [hideSaveButton]="true" [questions]="questions$ | async" (getForm) ="getForm($event)"></app-dynamic-form>
+</nz-modal>

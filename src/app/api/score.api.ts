@@ -6,25 +6,25 @@ import {baseUrl, httpOptions} from './ApiConst';
 
 @Injectable()
 
-export class StudentApi {
+export class ScoreApi {
 
-  private baseUrl = baseUrl + "/student";
+  private baseUrl = baseUrl + "/score";
 
   constructor(
     private http: HttpClient
   ) {
   }
 
-  public getStudentList(): Observable<any> {
+  public list(): Observable<any> {
     return this.http.get(this.baseUrl+'/list');
   }
 
-  public update(student){
-    return this.http.post(this.baseUrl + '/update',student,httpOptions);
+  public update(score){
+    return this.http.post(this.baseUrl + '/update',score,httpOptions);
   }
 
-  public add(student){
-    return this.http.post(this.baseUrl + '/add',student,httpOptions);
+  public add(score){
+    return this.http.post(this.baseUrl + '/add',score,httpOptions);
   }
 
   public delete(idlist){

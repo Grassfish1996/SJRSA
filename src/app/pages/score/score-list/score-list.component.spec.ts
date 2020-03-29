@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClassManComponent } from './class-man.component';
+import { ScoreListComponent } from './score-list.component';
 
-describe('ClassManComponent', () => {
-  let component: ClassManComponent;
-  let fixture: ComponentFixture<ClassManComponent>;
+describe('ScoreListComponent', () => {
+  let component: ScoreListComponent;
+  let fixture: ComponentFixture<ScoreListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ClassManComponent ]
+      declarations: [ ScoreListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClassManComponent);
+    fixture = TestBed.createComponent(ScoreListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

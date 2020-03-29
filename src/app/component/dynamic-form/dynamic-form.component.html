@@ -4,7 +4,7 @@
       <app-question [question]="question" [form]="form"></app-question>
     </ng-container>
 
-    <nz-form-item nz-row class="register-area">
+    <nz-form-item *ngIf="!hideSaveButton" nz-row class="register-area">
       <nz-form-control [nzSpan]="14" [nzOffset]="6">
         <button [disabled]="!form.valid" nz-button nzType="primary">保存</button>
       </nz-form-control>

@@ -12,7 +12,9 @@ import { QuestionControlService } from './question-control.service';
 export class DynamicFormComponent implements OnInit {
 
   @Input() questions: QuestionBase<string>[] = [];
+  @Input() hideSaveButton: Boolean = false;
   @Output() private submitEvent = new EventEmitter<FormGroup>();
+  @Output() getForm = new EventEmitter<FormGroup>();
   form: FormGroup;
   payLoad = '';
 
@@ -20,6 +22,7 @@ export class DynamicFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
+    this.getForm.emit(this.form);
   }
 
   onSubmit() {

@@ -7,7 +7,7 @@ import {StuManExcelComponent} from './stu-man-excel/stu-man-excel.component';
 import { StuManComponent } from './stu-man.component';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
 import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AppShareModule} from '../../component/app-share.module';
+import {AppShareModule} from '../../../component/app-share.module';
 
 
 @NgModule({

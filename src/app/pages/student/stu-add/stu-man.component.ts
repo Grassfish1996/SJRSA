@@ -12,4 +12,8 @@ export class StuManComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onBack(){
+    history.back();
+  }
+
 }

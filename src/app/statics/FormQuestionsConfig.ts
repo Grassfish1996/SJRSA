@@ -73,7 +73,7 @@ export const formQuestionsConfig = {
     {
       controlType: 'textbox',
       option: {
-        key: 'stuid',
+        key: 'id',
         label: '学号',
         value: '',
         errTip: '请输入学号!',
@@ -142,7 +142,7 @@ export const formQuestionsConfig = {
     {
       controlType: 'textbox',
       option: {
-        key: 'phoneNumber',
+        key: 'phone',
         label: '手机号',
         errTip: '请输入正确的手机号!',
         order: 5,
@@ -155,48 +155,53 @@ export const formQuestionsConfig = {
     {
       controlType: 'cascader',
       option: {
-        key: 'class',
+        key: 'collegeAndClass',
         label: '学院班级',
         value: '',
         order: 6,
         options: [
           {
-            value: '0001',
+            value: '1313',
             label: '计算机学院',
             children: [
               {
-                value: 'rj1401',
+                value: '80',
                 label: '软件1401',
                 isLeaf: true
               },
               {
-                value: 'rj1402',
+                value: '81',
                 label: '软件1402',
                 isLeaf: true
               },
               {
-                value: 'rj1403',
+                value: '82',
                 label: '软件1403',
+                isLeaf: true
+              },
+              {
+                value: '83',
+                label: '软件1404',
                 isLeaf: true
               },
             ]
           },
           {
-            value: '0002',
+            value: '1314',
             label: '外国语学院',
             children: [
               {
-                value: 'yy1401',
+                value: '90',
                 label: '英语1401',
                 isLeaf: true
               },
               {
-                value: 'yy1402',
+                value: '91',
                 label: '英语1402',
                 isLeaf: true
               },
               {
-                value: 'yy1403',
+                value: '92',
                 label: '英语1403',
                 isLeaf: true
               },
@@ -209,11 +214,11 @@ export const formQuestionsConfig = {
       }
     },
   ],
-  classman: [
+  subjectman: [
     {
       controlType: 'textbox',
       option: {
-        key: 'classid',
+        key: 'id',
         label: '学科号',
         value: '',
         errTip: '请输入学科号!',
@@ -226,11 +231,24 @@ export const formQuestionsConfig = {
     {
       controlType: 'textbox',
       option: {
-        key: 'classname',
+        key: 'name',
         label: '学科名称',
         value: '',
         errTip: '请输入学科名称!',
         order: 2,
+        validator : {
+          required: true,
+        }
+      }
+    },
+    {
+      controlType: 'textbox',
+      option: {
+        key: 'credit',
+        label: '学分',
+        value: '',
+        errTip: '请输入学分!',
+        order: 3,
         validator : {
           required: true,
         }

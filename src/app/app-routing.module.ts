@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ScoreManComponent} from './pages/score-man/score-man.component';
-import {ClassManComponent} from './pages/class-man/class-man.component';
-import {StuListComponent} from './pages/stu-list/stu-list.component';
+import {StuUpdateComponent} from './pages/student/stu-update/stu-update.component';
+import {StuListComponent} from './pages/student/stu-list/stu-list.component';
+import {ScoreListComponent} from './pages/score/score-list/score-list.component';
+import {SubjectListComponent} from './pages/subject/subject-list/subject-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/stu-man' },
-  // { path: 'stu-man', loadChildren: './pages/stu-man/stu-man.module#StuManModule' },
+  { path: '', pathMatch: 'full', redirectTo: '/stu-list' },
+  // { path: 'stu-add', loadChildren: './pages/stu-add/stu-add.module#StuManModule' },
   {
-    path: 'stu-man',
-    loadChildren: () => import('./pages/stu-man/stu-man.module').then(m => m.StuManModule)
+    path: 'stu-add',
+    loadChildren: () => import('./pages/student/stu-add/stu-man.module').then(m => m.StuManModule)
   },
-  { path: 'score-man', component: ScoreManComponent },
-  { path: 'class-man', component: ClassManComponent },
+  { path: 'score-list', component: ScoreListComponent },
+  { path: 'subject-list', component: SubjectListComponent },
   { path: 'stu-list', component: StuListComponent },
+  { path: 'stu-update', component: StuUpdateComponent },
 ];
 
 @NgModule({
