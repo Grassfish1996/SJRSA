@@ -67,7 +67,7 @@ export class ScoreListComponent implements OnInit {
     private modalService: NzModalService,
     private router:Router,
   ) {
-    this.questions$ = service.getQuestions('subjectman');
+    this.questions$ = service.getQuestions('scoreman');
     console.log(this.questions$);
   }
 

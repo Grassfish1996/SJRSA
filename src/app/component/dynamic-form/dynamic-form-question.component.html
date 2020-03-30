@@ -1,4 +1,4 @@
-<nz-form-item [formGroup]="form">
+<nz-form-item [formGroup]="form" *ngIf="!question.hide">
   <nz-form-label [nzSm]="6" [nzXs]="24" [nzFor]="question.key" [nzRequired]="question.validator.required">{{question.label}}</nz-form-label>
   <nz-form-control [ngSwitch]="question.controlType" [nzSm]="14" [nzXs]="24" [nzErrorTip]="question.errTip">
     <ng-container *ngSwitchCase="'textbox'">

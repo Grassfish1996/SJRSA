@@ -6,6 +6,7 @@ export class QuestionBase<T> {
   controlType: string;
   type: string;
   errTip: string;
+  hide: boolean;
   options: {key: string, value: string}[];
   validator: { required?: boolean; min?: number; max?: number; minLength?: number; maxLength?: number; pattern?: string; email?: boolean };
 
@@ -17,6 +18,7 @@ export class QuestionBase<T> {
       controlType?: string,
       type?: string,
       errTip?: string,
+      hide?: boolean,
       validator?: {
         required?: boolean,
         min?: number,
@@ -34,6 +36,7 @@ export class QuestionBase<T> {
     this.controlType = options.controlType || '';
     this.type = options.type || '';
     this.errTip = options.errTip || '';
+    this.hide = !!options.hide;
 
     if (!options.validator) {
       this.validator = {required: false , min: 0,  max: 0, minLength: 0, maxLength: 0, pattern: '', email: false};

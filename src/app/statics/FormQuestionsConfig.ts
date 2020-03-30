@@ -1,74 +1,4 @@
 export const formQuestionsConfig = {
-  scoreman: [
-    {
-      controlType: 'textbox',
-      option: {
-        key: 'stuid',
-        label: '学号',
-        value: '',
-        errTip: '请输入学号!',
-        order: 1,
-        validator : {
-          required: true,
-        }
-      }
-    },
-    {
-      controlType: 'textbox',
-      option: {
-        key: 'name',
-        label: '姓名',
-        value: '',
-        errTip: '请输入姓名!',
-        order: 1,
-        validator : {
-          required: true,
-        }
-      }
-    },
-    {
-      controlType: 'textbox',
-      option: {
-        key: 'classid',
-        label: '学科号',
-        value: '',
-        errTip: '请输入姓名!',
-        order: 1,
-        validator : {
-          required: true,
-        }
-      }
-    },
-    {
-      controlType: 'textbox',
-      option: {
-        key: 'name',
-        label: '学科名',
-        value: '',
-        errTip: '请输入学科名!',
-        order: 1,
-        validator : {
-          required: true,
-        }
-      }
-    },
-    {
-      controlType: 'textbox',
-      option: {
-        key: 'score',
-        label: '成绩',
-        value: '',
-        errTip: '请正确输入成绩!',
-        order: 1,
-        validator : {
-          required: true,
-          min: 0,
-          max: 100,
-        }
-      }
-    },
-  ],
-
   stuman: [
     {
       controlType: 'textbox',
@@ -255,5 +185,56 @@ export const formQuestionsConfig = {
       }
     },
   ],
-
+  scoreman: [
+    {
+      controlType: 'textbox',
+      option: {
+        key: 'id',
+        label: '成绩id',
+        value: '',
+        errTip: '',
+        order: 1,
+        hide: true,
+      }
+    },
+    {
+      controlType: 'textbox',
+      option: {
+        key: 'stuid',
+        label: '学号',
+        value: '',
+        errTip: '请输入学号!',
+        order: 2,
+        validator : {
+          required: true,
+        }
+      }
+    },
+    {
+      controlType: 'textbox',
+      option: {
+        key: 'courseid',
+        label: '学科号',
+        value: '',
+        errTip: '请输入学科号!',
+        order: 3,
+        validator : {
+          required: true,
+        }
+      }
+    },
+    {
+      controlType: 'textbox',
+      option: {
+        key: 'score',
+        label: '分数',
+        value: '',
+        errTip: '请输入分数!',
+        order: 4,
+        validator : {
+          required: true,
+        }
+      }
+    },
+  ],
 };
